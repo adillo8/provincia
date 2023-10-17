@@ -1,31 +1,43 @@
 package dominio;
-import java.util.*;
+import java.util.ArrayList;
 
-
-
-public class Municipio{
-	private String nombreMunicipio;
-
-	private Arraylist <Localidad> localidades = new Arraylist<>();
-	public Municipio (String nombre.){
-		this.nombre = nombre;}
-
-	public Municipio add localidad (localidad L){
-		localidades.add(L);
-		return this;
-		}
-	public String toString (){
-		String cad = "localidad: " + nombre + " municipios: \n";
-		for (Localidad L: localidades)
-		cad+= (L + "\n");
-		return cad;
-
-	}
-        
-	public int getPoblacion(){
-		int total =0;
-		for (Localidad L : localidades)
-                total +=L.getPoblacion();
-		return total;
-	}
-
+public class Municipio {
+    
+    private int numeroDeHabitantes;
+    private String nombreMunicipio;
+    static ArrayList <Localidad> localidades = new ArrayList<>();
+    public int contarHabitantesMunicipio(){
+        this.numeroDeHabitantes = 0;
+        for(Localidad localidad : localidades ){
+            this.numeroDeHabitantes += localidad.getNumeroDeHabitantes();
+        }
+        return this.numeroDeHabitantes;
+    }
+    public String getNombre(){
+        return this.nombreMunicipio;
+    }
+    public void addLocalidad(Localidad local){
+        localidades.add(local);
+    }
+    public String toString(){
+        String result = "El municipio de " + this.nombreMunicipio + " esta compuesto por: ";
+        for(Localidad localidad : localidades) {
+            result += (localidad.getNombre());
+            if(localidades.indexOf(localidad) == localidades.size()-2){
+                result += " y ";
+            }
+            else if(localidades.indexOf(localidad) == localidades.size()-1){
+                ;
+            }
+            else{result += (", ");}
+        } 
+        result += " y tiene " + this.contarHabitantesMunicipio() + " habitantes";
+        return result;
+    } 
+    public Municipio(String nombre, Localidad loc1,Localidad loc2){
+        this.nombreMunicipio = nombre;
+        localidades.add(loc1);
+        localidades.add(loc2);
+        this.numeroDeHabitantes = contarHabitantesMunicipio();
+    }
+}
