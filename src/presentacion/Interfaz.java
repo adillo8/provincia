@@ -83,9 +83,22 @@ public class Interfaz
         public static void insertarLocalidad(){
         Scanner sc =new Scanner (System.in);
         System.out.println("A que municipio pertenece la localidad");
-        String nombre = sc.nextLine(nombre);
+        String nombreLocalidad = sc.nextLine(nombre);
         System.out.println("dime el nombre de la localidad: ");
-        String 
+        String nombreMunicipio=sc.nextLine();
+        System.out.println("dime el numero de habitantes");
+        String input_habitantes=sc.nextLine();
+        int numeroDeHabitantes=0;
+        if (input_habitantes!=""){
+            try{
+                numeroDeHabitantes=Integer.parseInt((input_habitantes));
+            }cath(Exception e){
+                System.out.println("Valor introducido incorrecto");
+            }
+        }
+        Localidad l =new Localidad(nombreMunicipio, numeroDeHabitantes)
+        Municipio m =new Municipio(nombreMunicipio);
+        boolean existe =false;
         
         sc.close();
 
