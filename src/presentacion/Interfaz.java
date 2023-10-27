@@ -116,6 +116,7 @@ public class Interfaz
         try{
             obj= new ObjectOutputStream(new FileOutputStream(f));
             obj.writeObject(obj);
+            System.out.println("Guardado");
         } catch (Exception e) {
             System.out.println("error al guardar");
         }
