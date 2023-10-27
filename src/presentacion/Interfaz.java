@@ -109,9 +109,16 @@ public class Interfaz
         }
         Localidad l =new Localidad(nombreMunicipio, numeroDeHabitantes);
         Municipio m =new Municipio(nombreMunicipio);
-                                                
         sc.close();
 
+        ObjectOutputStream obj;
+        File f = new File ("inicios.txt");
+        try{
+            obj= new ObjectOutputStream(new FileOutputStream(f));
+            obj.writeObject(obj);
+        } catch (Exception e) {
+            System.out.println("error al guardar");
         }
     }
+}
 
