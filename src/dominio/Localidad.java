@@ -1,9 +1,11 @@
 package dominio;
-public class Localidad{
+import java.io.Serializable;
+public class Localidad implements Serializable{
+	
 	private String nombre;
 	private int numeroDeHabitantes;
 
-	public Localidad(String nombre, int numeroDeHabitantes)
+	public Localidad(String nombre,int numeroDeHabitantes)
 	{
 		this.nombre=nombre;
 		this.numeroDeHabitantes=numeroDeHabitantes;

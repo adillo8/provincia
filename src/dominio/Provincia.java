@@ -1,7 +1,8 @@
 package dominio;
 import java.util.*;
+import java.io.Serializable;
 
-public class Provincia{
+public class Provincia implements Serializable{
     private int numeroDeHabitantes;
 	private String nombreProvincia;
 
@@ -18,8 +19,7 @@ public class Provincia{
 		for (Municipio l: Municipios)
 		cad+= (l + "\n");
 		return cad;
-
-	}
+       }
         
 	public int getcontarHabitantesMunicipio(){
 		int total =0;

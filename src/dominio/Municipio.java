@@ -1,7 +1,8 @@
 package dominio;
 import java.util.ArrayList;
+import java.io.Serializable;
 
-public class Municipio {
+public class Municipio implements Serializable {
     
     private int numeroDeHabitantes;
     private String nombreMunicipio;
@@ -34,10 +35,10 @@ public class Municipio {
         result += " y tiene " + this.contarHabitantesMunicipio() + " habitantes";
         return result;
     } 
-    public Municipio(String nombre, Localidad loc1,Localidad loc2){
+    public Municipio(String nombre){
         this.nombreMunicipio = nombre;
-        localidades.add(loc1);
-        localidades.add(loc2);
+        //localidades.add(loc1);
+        //localidades.add(loc2);
         this.numeroDeHabitantes = contarHabitantesMunicipio();
     }
 }

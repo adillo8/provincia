@@ -5,8 +5,19 @@ import java.io.*;
 
 public class Interfaz 
 {
-    static ArrayList <Provincia> provincias= new ArrayList <>();
-    public static ArrayList <Provincia> leer ()
+    public ArrayList <Provincia> provincias= new ArrayList <>();
+    public Interfaz(){
+        ObjectInputStream obj ;
+        File f =new File ("Provincias.txt");
+        try {
+            obj=new ObjectInputStream(new FileInputStream(f));
+            provincias=(ArrayList<Provincia>) obj.readObject();
+        } catch (Exception e) {
+            provincias=new ArrayList<Provincia>();
+        }
+    }
+    
+    public ArrayList <Provincia> leer ()
     {
         Scanner sc = new Scanner (System.in);
         String nomProvincia;
@@ -51,7 +62,7 @@ public class Interfaz
         sc.close();
         return provincias;
         }
-        public static void insertarProvincia(){
+        public void insertarProvincia(){
         Scanner sc =new Scanner (System.in);
         System.out.println("Defina el nombre de la provincia");
         String nombre =sc.nextLine();
@@ -64,7 +75,7 @@ public class Interfaz
         }
         sc.close();
         }
-        public static void insertarMunicipio(){
+        public void insertarMunicipio(){
         Scanner sc =new Scanner (System.in);
         System.out.println("A que provincia peretenece el Municipio");
         String nombre =sc.nextLine();
@@ -80,10 +91,10 @@ public class Interfaz
         sc.close();
         }
         
-        public static void insertarLocalidad(){
+        public void insertarLocalidad(){
         Scanner sc =new Scanner (System.in);
         System.out.println("A que municipio pertenece la localidad");
-        String nombreLocalidad = sc.nextLine(nombre);
+        String nombreLocalidad = sc.nextLine();
         System.out.println("dime el nombre de la localidad: ");
         String nombreMunicipio=sc.nextLine();
         System.out.println("dime el numero de habitantes");
@@ -92,14 +103,13 @@ public class Interfaz
         if (input_habitantes!=""){
             try{
                 numeroDeHabitantes=Integer.parseInt((input_habitantes));
-            }cath(Exception e){
+            }catch(Exception e){
                 System.out.println("Valor introducido incorrecto");
             }
         }
-        Localidad l =new Localidad(nombreMunicipio, numeroDeHabitantes)
+        Localidad l =new Localidad(nombreMunicipio, numeroDeHabitantes);
         Municipio m =new Municipio(nombreMunicipio);
-        boolean existe =false;
-        
+                                                
         sc.close();
 
         }
