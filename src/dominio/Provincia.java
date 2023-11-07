@@ -27,7 +27,7 @@ public class Provincia implements Serializable{
                 total +=l.contarHabitantesMunicipio();
 		return total;
 	}
-		}
+}
 
 
 
